@@ -12,7 +12,7 @@ async function update(req, res) {
   await service.update(reviewToUpdate, review.review_id);
   const result = await service.read(review.review_id);
   const critic = await service.getCritic(review.critic_id);
-  const response = { ...reviewToUpdate, critic: critic[0] };
+  const response = { ...reviewToUpdate, critic: critic };
 
   res.status(200).json({ data: response });
 }
